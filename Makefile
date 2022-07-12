@@ -6,7 +6,7 @@
 #    By: shan <shan@student.42seoul.kr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/11 01:35:05 by shan              #+#    #+#              #
-#    Updated: 2022/07/11 01:42:08 by shan             ###   ########.fr        #
+#    Updated: 2022/07/13 00:23:37 by shan             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,10 +24,9 @@ SRCS	= push_swap.c\
 		  ft_bzero.c\
 		  ft_strlcat.c\
 		  ft_strlcpy.c\
-		  ft_strlen.c\
+		  ft_utils.c\
 		  get_next_line.c\
 		  sort_small.c\
-		  sort_small2.c\
 		  longest_increasing.c\
 		  utils.c\
 		  utils2.c\

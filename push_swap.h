@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 # include <unistd.h>
 # include <stdlib.h>
+# include <stddef.h>
 
 typedef struct Stack
 {
@@ -25,7 +26,7 @@ typedef struct Stack
 size_t	ft_strlen(const	char *s);
 char	*ft_strchr(char *s, int c);
 void	ft_putstr(char *s);
-int		ft_atoi(const char *str);
+long		ft_atoi(const char *str);
 void	*ft_calloc(size_t count, size_t size);
 void	ft_bzero(void *s, size_t n);
 int		ft_isdigit(int c);

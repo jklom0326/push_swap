@@ -6,7 +6,7 @@
 #    By: shan <shan@student.42seoul.kr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/11 01:35:05 by shan              #+#    #+#              #
-#    Updated: 2022/07/14 23:31:05 by shan             ###   ########.fr        #
+#    Updated: 2022/07/15 01:26:04 by shan             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,13 +29,14 @@ SRCS	= push_swap.c\
 		ft_utils.c\
 		get_next_line.c\
 		sort_small.c\
+		sort.c\
 		longest_increasing.c\
 		utils.c\
 		utils2.c\
 		utils3.c\
 		args.c
 
-OBJS 	= &(SRCS:.c=.o)
+OBJS 	= $(SRCS:.c=.o)
 
 all		: $(NAME)
 
@@ -46,7 +47,7 @@ $(NAME)	: $(OBJS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-		rm -rf $(M_OBJS) $(M_OBJB)
+		rm -rf $(OBJS) $(OBJB)
 
 fclean: clean
 		rm -rf $(NAME) $(CHECKER)

@@ -9,6 +9,7 @@
 /*   Updated: 2022/07/12 23:59:25 by shan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "push_swap.h"
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {

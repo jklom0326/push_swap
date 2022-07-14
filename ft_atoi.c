@@ -13,12 +13,12 @@
 
 long	ft_atoi(const char *str)
 {
-	int			i;
-	long		n;
-	long long	res;
+	int				i;
+	long			n;
+	long long		res;
 
 	i = 0;
-	res =0;
+	res = 0;
 	n = 1;
 	while (str[i] == '\n' || str[i] == '\r' || str[i] == '\t'
 		||str[i] == '\f' || str[i] == '\v' || str[i] == ' ' )

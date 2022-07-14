@@ -6,7 +6,7 @@
 #    By: shan <shan@student.42seoul.kr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/11 01:35:05 by shan              #+#    #+#              #
-#    Updated: 2022/07/13 00:23:37 by shan             ###   ########.fr        #
+#    Updated: 2022/07/14 23:31:05 by shan             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,22 +16,24 @@ CC		= cc
 CFLAGS	= -Wall -Wextra -Werror
 
 SRCS	= push_swap.c\
-		  ft_atoi.c\
-		  ft_isdigit.c\
-		  ft_split.c\
-		  ft_strjoin.c\
-		  ft_calloc.c\
-		  ft_bzero.c\
-		  ft_strlcat.c\
-		  ft_strlcpy.c\
-		  ft_utils.c\
-		  get_next_line.c\
-		  sort_small.c\
-		  longest_increasing.c\
-		  utils.c\
-		  utils2.c\
-		  utils3.c\
-		  args.c
+		operation.c \
+		moves.c \
+		ft_atoi.c\
+		ft_isdigit.c\
+		ft_split.c\
+		ft_strjoin.c\
+		ft_calloc.c\
+		ft_bzero.c\
+		ft_strlcat.c\
+		ft_strlcpy.c\
+		ft_utils.c\
+		get_next_line.c\
+		sort_small.c\
+		longest_increasing.c\
+		utils.c\
+		utils2.c\
+		utils3.c\
+		args.c
 
 OBJS 	= &(SRCS:.c=.o)
 

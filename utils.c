@@ -5,82 +5,49 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: shan <shan@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/14 21:59:44 by shan              #+#    #+#             */
-/*   Updated: 2022/07/14 21:59:44 by shan             ###   ########.fr       */
+/*   Created: 2022/07/16 22:48:49 by shan              #+#    #+#             */
+/*   Updated: 2022/07/16 22:48:49 by shan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "push_swap.h"
 
-t_p1	*creat_stack(unsigned int capacity)
+int	more_than_one(t_node *stack)
 {
-	t_p1	*stack;
-
-	stack = (t_p1 *)malloc(sizeof(*stack));
-	if (!(stack))
-		return (NULL);
-	stack->capacity = capacity;
-	stack->top = -1;
-	stack->arry = malloc(capacity * sizeof(*(stack->arry)));
-	if (!(stack->arry))
-		return (NULL);
-	return (stack);
-}
-
-int	*ft_swap(int *a, int *b)
-{
-	int	swp;
-
-	swp = *a;
-	*a = *b;
-	*b = swp;
+	if (stack->next == NULL)
+		return (1);
 	return (0);
 }
 
-int	get_index(t_p1 *stack, int m)
+int	ischardigit(char var)
 {
-	int	i;
-
-	i = 0;
-	while (stack->arry[i] != m)
-	{
-		i++;
-	}
-	return (i);
+	if ((var >= 48 && var <= 57) || var == 45 || var == 43)
+		return (1);
+	return (0);
 }
 
-int	is_sorted(t_p1 *stack)
+size_t	ft_strlen(const char *pointer)
 {
-	int	i;
-	int	nb;
+	size_t	counter;
+
+	counter = 0;
+	while (pointer[counter] != '\0')
+		counter++;
+	return (counter);
+}
+
+int	ft_strcmp(char *str1, char *str2)
+{
+	size_t	size;
+	size_t	i;
 
 	i = 0;
-	nb = stack->arry[i];
-	while (i <= stack->top)
+	size = ft_strlen(str1);
+	if (size != ft_strlen(str2))
+		return (0);
+	while (i < size)
 	{
-		if (nb < stack->arry[i])
+		if (str1[i] != str2[i])
 			return (0);
-		nb = stack->arry[i];
-		i++;
-	}
-	return (1);
-}
-
-int	is_double(char **t)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while (t[i])
-	{
-		j = i + 1;
-		while (t[j])
-		{
-			if (ft_atoi(t[i]) == ft_atoi(t[j]))
-				return (0);
-			j++;
-		}
 		i++;
 	}
 	return (1);

@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   push_swap_bonus.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shan <shan@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/12 22:24:47 by shan              #+#    #+#             */
-/*   Updated: 2022/07/12 22:24:47 by shan             ###   ########.fr       */
+/*   Created: 2022/07/18 02:50:05 by shan              #+#    #+#             */
+/*   Updated: 2022/07/18 02:50:05 by shan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#ifndef PUSH_SWAP_BONUS_H
+# define PUSH_SWAP_BONUS_H
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-
-# include <string.h>
-# include <stdlib.h>
 # include <unistd.h>
+# include <stdlib.h>
+# include <stddef.h>
+# include <stdio.h>
 
+# define EOL			1
+# define FT_EOF			0
+# define ERROR			-1
+# define BUFFER_SIZE	1
 # define INT_MAX 2147483647
 # define INT_MIN -2147483648
 
@@ -42,6 +46,14 @@ typedef struct sort
 	int	last_down;
 	int	len;
 }	t_sort;
+
+int				get_next_line(int fd, char **line);
+void			*ft_memcpy(void *dest, const void *src, size_t n);
+size_t			ft_strlen(const char *pointer);
+char			*ft_strjoin(char *s1, char const *s2);
+char			*ft_substr(char const *s, unsigned int start, size_t len);
+void			ft_strdel(char **str);
+int				init_error(char *buffer);
 
 void			errors_handler(int ac, char *av[]);
 void			error(void);
@@ -86,4 +98,17 @@ void			rra(t_node *stack);
 void			rrb(t_node *stack);
 void			rrr(t_node *stack_a, t_node *stack_b);
 
+void			sa_checker(t_node *stack);
+void			sb_checker(t_node *stack);
+void			ss_checker(t_node *stack_a, t_node *stack_b);
+void			pa_checker(t_node *stack_a, t_node *stack_b);
+void			pb_checker(t_node *stack_a, t_node *stack_b);
+void			ra_checker(t_node *stack);
+void			rb_checker(t_node *stack);
+void			rr_checker(t_node *stack_a, t_node *stack_b);
+void			rra_checker(t_node *stack);
+void			rrb_checker(t_node *stack);
+void			rrr_checker(t_node *stack_a, t_node *stack_b);
+
 #endif
+

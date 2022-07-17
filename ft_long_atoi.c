@@ -1,34 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_long_atoi.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shan <shan@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/16 22:58:50 by shan              #+#    #+#             */
-/*   Updated: 2022/07/16 22:58:50 by shan             ###   ########.fr       */
+/*   Created: 2022/07/18 01:17:57 by shan              #+#    #+#             */
+/*   Updated: 2022/07/18 01:17:57 by shan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
 
-int	ft_isdigit_int(int argument)
+long long int	ft_isdigit(long long int argument)
 {
 	if (argument >= 48 && argument <= 57)
 		return (1);
 	return (0);
 }
 
-size_t	ft_strlen_int(const char *pointer)
-{
-	size_t	counter;
-
-	counter = 0;
-	while (pointer[counter] != '\0')
-		counter++;
-	return (counter);
-}
-
-static int	ft_isspace(int chr)
+static long long int	ft_isspace(long long int chr)
 {
 	if (chr == '\n' || chr == '\t' || chr == '\v'
 		|| chr == '\r' || chr == '\f' || chr == ' ')
@@ -37,14 +27,15 @@ static int	ft_isspace(int chr)
 		return (0);
 }
 
-static int	calc_atoi(const char *str, int len, int counter)
+static long long int	calc_atoi(const char *str, long long int len,
+									long long int counter)
 {
-	int	result;
+	long long int	result;
 
 	result = 0;
 	while (counter < len)
 	{
-		if (ft_isdigit_int(str[counter]))
+		if (ft_isdigit(str[counter]))
 		{
 			result = (result * 10) + (str[counter] - '0');
 			counter++;
@@ -55,14 +46,14 @@ static int	calc_atoi(const char *str, int len, int counter)
 	return (result);
 }
 
-int	ft_atoi(const char *str)
+long long int	ft_atoi_long(const char *str)
 {
-	int		len;
-	int		final_result;
-	int		counter;
+	long long int		len;
+	long long int		final_result;
+	long long int		counter;
 
 	counter = 0;
-	len = ft_strlen_int(str);
+	len = ft_strlen(str);
 	while (ft_isspace(str[counter]))
 		counter++;
 	if (str[counter] == '+')

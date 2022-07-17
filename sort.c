@@ -5,136 +5,81 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: shan <shan@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/15 01:09:47 by shan              #+#    #+#             */
-/*   Updated: 2022/07/15 01:09:47 by shan             ###   ########.fr       */
+/*   Created: 2022/07/16 22:27:15 by shan              #+#    #+#             */
+/*   Updated: 2022/07/16 22:27:15 by shan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
 
-static	int	get_p(t_p1 *a, t_p1 *b, int nb, int next_nb)
+int	stack_length(t_node *stack)
 {
-	int	index;
-	int	next_nb_index;
-	int	arr[3];
+	int	counter;
 
-	index = get_index(b, nb);
-	next_nb_index = get_index(a, next_nb);
-	if (index >= b->top / 2)
-		arr[0] = b->top - index;
-	else
-		arr[0] = index + 1;
-	if (next_nb_index >= a->top / 2)
-		arr[0] += a->top - next_nb_index;
-	else
-		arr[0] += next_nb_index + 1;
-	if (index + 1 > next_nb_index + 1)
-		arr[1] = index + 1;
-	else
-		arr[1] = next_nb_index + 1;
-	if (b->top - index > a->top - next_nb_index)
-		arr[2] = b->top - index;
-	else
-		arr[2] = a->top - next_nb_index;
-	return (get_min_index(arr, 3));
+	counter = 0;
+	while (stack->next)
+	{
+		stack = stack->next;
+		counter++;
+	}
+	return (counter);
 }
 
-static	int	best_nb(t_p1 *a, t_p1 *b, int nb, int next_nb)
+int	ordered(t_node *stack_a)
 {
-	int	index;
-	int	next_nb_index;
-	int	arr[3];
-
-	index = get_index(b, nb);
-	next_nb_index = get_index(a, next_nb);
-	if (index >= b->top / 2)
-		arr[0] = b->top - index;
-	else
-		arr[0] = index + 1;
-	if (next_nb_index >= a->top / 2)
-		arr[0] += a->top - next_nb_index;
-	else
-		arr[0] += next_nb_index + 1;
-	if (index + 1 > next_nb_index + 1)
-		arr[1] = index + 1;
-	else
-		arr[1] = next_nb_index + 1;
-	if (b->top - index > a->top - next_nb_index)
-		arr[2] = b->top - index;
-	else
-		arr[2] = a->top - next_nb_index;
-	return (arr[get_min_index(arr, 3)]);
+	stack_a = stack_a->next;
+	while (stack_a->next)
+	{
+		if (stack_a->index > stack_a->next->index)
+			return (0);
+		stack_a = stack_a->next;
+	}
+	return (1);
 }
 
-static	int	nb_stack(t_p1 *a, t_p1 *b)
+int	find_next_position(t_node *stack_b)
 {
-	int	*count;
-	int	comp;
-	int	next_nb;
-	int	i;
+	int	max_index;
+	int	max_position;
+	int	counter;
 
-	count = (int *)ft_calloc(b->top + 1, sizeof(int));
-	if (!count)
-		exit (1);
-	comp = 0;
-	i = 0;
-	while (i < b->top + 1)
+	counter = 1;
+	stack_b = stack_b->next;
+	max_index = stack_b->index;
+	while (stack_b->next)
 	{
-		next_nb = get_next_nb(a, b->arry[i]);
-		count[i] = best_nb(a, b, b->arry[i], next_nb);
-		if (count[i] <= count[comp])
-			comp = i;
-		i++;
+		if (stack_b->index >= max_index)
+		{
+			max_position = counter;
+			max_index = stack_b->index;
+		}
+		stack_b = stack_b->next;
+		counter++;
 	}
-	free (count);
-	return (b->arry[comp]);
+	if (stack_b->index >= max_index)
+	{
+		max_position = counter;
+		max_index = stack_b->index;
+	}
+	return (max_position);
 }
-
-static	void	push_to_stack_a(t_p1 *a, t_p1 *b, int nb, int next_nb)
+ 
+void	sort(t_node *stack_a, t_node *stack_b)
 {
-	int	p;
+	int	len;
 
-	p = get_p(a, b, nb, next_nb);
-	if (p == 1)
-		while (a->arry[a->top] != next_nb && b->arry[b->top] != nb)
-			o_double(a, b, 1, "rrr\n");
-	else if (p == 2)
-		while (a->arry[a->top] != next_nb && b->arry[b->top] != nb)
-			o_double(a, b, 2, "rr\n");
-	while (a->arry[a->top] != next_nb)
-	{
-		if (get_index(a, next_nb) >= (a->top) - (a->top / 2))
-			rotat_stack(a, "ra\n");
-		else
-			rrotat(a, "rra\n");
-	}
-	while (b->arry[b->top] != nb)
-	{
-		if (get_index(b, nb) >= (b->top) - (b->top / 2))
-			rotat_stack(b, "rb\n");
-		else
-			rrotat(b, "rrb\n");
-	}
-	push_top(b, a, "pa\n");
-}
-
-void	sort_b_to_a(t_p1 *a, t_p1 *b)
-{
-	int	nb;
-	int	next_nb;
-	int	min;
-
-	while (b->top >= 0)
-	{
-		nb = nb_stack(a, b);
-		next_nb = get_next_nb(a, nb);
-		push_to_stack_a(a, b, nb, next_nb);
-	}
-	min = is_get_min(a);
-	while (a->arry[a->top] != min)
-	{
-		if (get_index(a, min) >= (a->top) - (a->top / 2))
-			rotat_stack(a, "ra\n");
-		else
-			rrotat(a, "rra\n");
-	}
+	len = stack_length(stack_a);
+	if (more_than_one(stack_a))
+		return ;
+	if (ordered(stack_a))
+		return ;
+	if (len == 2)
+		if (stack_a->next->index > stack_a->next->next->index)
+			sa(stack_a);
+	if (len == 3)
+		sort_with_3(stack_a);
+	else if (len <= 5)
+		sort_with_5(stack_a, stack_b);
+	else
+		sort_with_n(stack_a, stack_b, len);
+	print_command("");
 }

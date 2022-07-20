@@ -95,12 +95,12 @@ void	sort_with_n(t_node *stack_a, t_node *stack_b, int len)
 	int		chunk;
 	t_sort	data;
 
-	chunk = 14;
+	chunk = 15;
 	if (len > 450)
-		chunk = 29;
+		chunk = 30;
 	data.up = (len / 2) + chunk;
 	data.down = (len / 2) - chunk;
-	data.last_up = len / 2;
+	data.last_up = len / 2; 
 	data.last_down = len / 2;
 	send_chunks_to_stack_b(stack_a, stack_b, &data, chunk);
 	bring_back_to_stack_a(stack_a, stack_b);

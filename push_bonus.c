@@ -40,6 +40,8 @@ void	pb_checker(t_node *stack_a, t_node *stack_b)
 	if (more_than_one(stack_a))
 		return ;
 	node = (t_node *)malloc(sizeof(t_node));
+	if (!(node))
+		return (NULL);
 	to_free = stack_a->next;
 	if (stack_b->next == NULL)
 		px_operation_case_null_checker(stack_b, stack_a, node);
@@ -63,6 +65,8 @@ void	pa_checker(t_node *stack_a, t_node *stack_b)
 	if (more_than_one(stack_b))
 		return ;
 	node = (t_node *)malloc(sizeof(t_node));
+	if (!(node))
+		return (NULL);
 	to_free = stack_b->next;
 	if (stack_a->next == NULL)
 		px_operation_case_null_checker(stack_a, stack_b, node);

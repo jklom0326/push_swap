@@ -33,6 +33,8 @@ void	populate(t_node *stack, int size, char *argv[], int *indexator)
 	while (i < size - 2)
 	{
 		stack->next = (t_node *)malloc(sizeof(t_node));
+		if (!(stack))
+			return ;
 		stack->next->previous = stack;
 		stack->value = atoi(argv[i + 1]);
 		stack->index = indexator[i];

@@ -43,7 +43,11 @@ int	*index_it(int ac, char *av[])
 	t_index	*array;
 
 	array = (t_index *)malloc(sizeof(t_index) * (ac - 1));
+	if (!(array))
+		return (NULL);
 	return_it = (int *)malloc(sizeof(int) * (ac - 1));
+	if (!(return_it))
+		return (NULL);
 	i = -1;
 	j = 0;
 	while (++i < ac - 1)

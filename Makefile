@@ -6,7 +6,7 @@
 #    By: shan <shan@student.42seoul.kr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/11 01:35:05 by shan              #+#    #+#              #
-#    Updated: 2022/07/18 03:12:09 by shan             ###   ########.fr        #
+#    Updated: 2022/07/23 16:09:26 by shan             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ SRCS	=	push_swap.c\
 			ft_atoi.c\
 			ft_itoa.c\
 			ft_long_atoi.c\
+			ft_split.c\
 			index.c\
 			init_stack.c\
 			print_command.c\
@@ -32,6 +33,8 @@ SRCS	=	push_swap.c\
 			sort.c\
 			swap.c\
 			utils.c\
+			check_arg_utils.c\
+			check_arg.c
 
 SRCS_B	=	push_swap_bonus.c\
 			error.c\

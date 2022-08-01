@@ -15,26 +15,45 @@
 void	errors_handler(int ac, char *av[])
 {
 	error_isonearg(ac);
+	// printf("1");
 	error_isnumber(ac, av);
+	// printf("2");
 	error_isbigger(ac, av);
+	// printf("3");
 	error_isduplic(ac, av);
+	// printf("4");
 }
 
 int	main(int ac, char *av[])
 {
 	int		i;
 	char	**tab;
+	int		j;
 	t_node	*stack_a;
 	t_node	*stack_b;
 
-	errors_handler(ac, av);
+	j = 0;
 	tab = push_in_t_stack(ac, av, &i);
-	i -= 1;
+	// printf("%s\n",tab[j]);
+	// j++;
+	// printf("%s\n",tab[j]);
+	// j++;
+	// printf("%s\n",tab[j]);
+	// j++;
+	// printf("%s\n",tab[j]);
+	// j++;
+	// printf("%s\n",tab[j]);
+	// j++;
+	// printf("%s\n",tab[j]);
+	// printf("%i\n", ac);
+	// printf("%i\n", i);
+	
+	errors_handler(i, tab);
 	stack_a = init_stack();
 	stack_b = init_stack();
 	if (ac == 2)
 		populate(stack_a, i, tab, index_it(i, tab));
-	populate(stack_a, ac, av, index_it(ac, av));
+	populate(stack_a, i, tab, index_it(i, tab));
 	sort(stack_a, stack_b);
 	free_stack(stack_a);
 	free_stack(stack_b);

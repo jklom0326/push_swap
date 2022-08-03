@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
+#include <stdio.h>
 
 static	int	check_tab(char **t)
 {
@@ -106,6 +107,7 @@ char	**push_in_t_stack(int ac, char *av[], int *i)
 	if (ac <= 1)
 		exit (1);
 	tab = args(ac, av);
+	// printf("%c", **tab);
 	if (check_tab(tab) == 0)
 	{
 		write (2, "Error\n", 6);

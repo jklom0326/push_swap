@@ -25,7 +25,7 @@ void	populate(t_node *stack, int size, char *argv[], int *indexator)
 {
 	int	i;
 
-	i = 0;
+	i = -1;
 	stack->next = (t_node *)malloc(sizeof(t_node));
 	stack->next->previous = stack;
 	stack->previous = NULL;

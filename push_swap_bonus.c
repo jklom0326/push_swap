@@ -90,14 +90,17 @@ int	main(int ac, char *av[])
 {
 	t_node	*stack_a;
 	t_node	*stack_b;
+	char	**tab;
 	char	*line;
 	int		i;
+	int		j;
 
-	i = 1;
+	tab = push_in_t_stack(ac, av, &i);
 	errors_handler(ac, av);
 	stack_a = init_stack();
 	stack_b = init_stack();
 	populate_checker(stack_a, ac, av);
+	j = 1;
 	while (i)
 	{
 		i = get_next_line(0, &line);

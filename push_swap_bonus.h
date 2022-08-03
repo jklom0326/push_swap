@@ -111,4 +111,3 @@ void			rrb_checker(t_node *stack);
 void			rrr_checker(t_node *stack_a, t_node *stack_b);
 
 #endif
-

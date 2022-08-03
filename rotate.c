@@ -70,4 +70,3 @@ void	rr(t_node *stack_a, t_node *stack_b)
 	ra(stack_a);
 	rb(stack_b);
 }
-

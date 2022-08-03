@@ -62,7 +62,7 @@ int	find_next_position(t_node *stack_b)
 	}
 	return (max_position);
 }
- 
+
 void	sort(t_node *stack_a, t_node *stack_b)
 {
 	int	len;

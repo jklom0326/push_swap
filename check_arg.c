@@ -107,7 +107,6 @@ char	**push_in_t_stack(int ac, char *av[], int *i)
 	if (ac <= 1)
 		exit (1);
 	tab = args(ac, av);
-	// printf("%c", **tab);
 	if (check_tab(tab) == 0)
 	{
 		write (2, "Error\n", 6);

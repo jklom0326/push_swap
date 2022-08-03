@@ -27,14 +27,11 @@ int	main(int ac, char *av[])
 	t_node	*stack_a;
 	t_node	*stack_b;
 
-	errors_handler(ac, av);
 	tab = push_in_t_stack(ac, av, &i);
-	i -= 1;
+	errors_handler(i, tab);
 	stack_a = init_stack();
 	stack_b = init_stack();
-	if (ac == 2)
-		populate(stack_a, i, tab, index_it(i, tab));
-	populate(stack_a, ac, av, index_it(ac, av));
+	populate(stack_a, i, tab, index_it(i, tab));
 	sort(stack_a, stack_b);
 	free_stack(stack_a);
 	free_stack(stack_b);
